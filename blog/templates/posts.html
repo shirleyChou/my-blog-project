@@ -7,10 +7,23 @@
 </div>
 {% endblock %}
 
-{% block page_content %}
-<ol>
-    {% for post in posts %}
-        <li>{ post.publish_date|date:"F j, Y"}: {post.title|safe}</li>
-    {% endfor %}
-</ol>
-{% endblock %}
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+               {% block page_content %}
+               <ol>
+                   {% for post in posts %}
+                       <li>: 
+                           <span class="date"><small>{ post.publish_date|date:"F j, Y"}</small></span>
+                           <a href="{{ blog.get_absolute_url }}">{post.title|safe}</a>
+                       </li>
+                   {% endfor %}
+               </ol>
+               {% endblock %}
+            </div>
+        </div>
+    </div>
+</article>
+<hr>
+
