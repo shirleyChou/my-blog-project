@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+
+{% block page_header %}
+<div class="site-heading">
+    <h1>Home Page</h1>
+        <hr class="small">
+        <span class="subheading">*技术记录栈</span>
+</div>
+{% endblock %}
+
+{% block page_content %}
+{% for post in posts %}
+    <div class="post-preview">
+        <a href="post.html">
+            <h2 class="post-title">
+                {{ post.title|safe }}
+            </h2>
+            <h3 class="post-subtitle">
+                {{ post.abstract|safe }}
+            </h3>
+        </a>
+        <p class="post-meta">Posted by <a href="#">{{ post.author.username}}</a>on {{ post.publish_time|date:"F j, Y" }}.</p>
+    </div>
+    <hr>
+{% endfor %}
+
+<!-- Pager -->
+<ul class="pager">
+    <li class="next">
+        {% if page_num != 0 %}
+        <a href="/?p={{page_num}}">Older Posts &rarr;</a>
+        {% else %}
+        This Is The Last Page
+        {% endif %}
+    </li>
+</ul>
+{% endblock %}

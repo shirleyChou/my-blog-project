@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}All Posts{% endblock %}
+{% block page_header %}
+<div class="page-heading">
+    <h1>All Posts</h1>
+    <hr class="small">
+</div>
+{% endblock %}
+
+{% block page_content %}
+<ol>
+    {% for post in posts %}
+        <li>{ post.publish_date|date:"F j, Y"}: {post.title|safe}</li>
+    {% endfor %}
+</ol>
+{% endblock %}
