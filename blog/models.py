@@ -40,7 +40,7 @@ class Post(models.Model):
         super(Post, self).save(*args, **kwargs)
         
     def get_post_url():
-        return reverse('article', args=(self.id, self.link))
+        return '/blog' + reverse('article', args=(self.id, self.link))
 
     def __unicode__(self):
         return self.title
