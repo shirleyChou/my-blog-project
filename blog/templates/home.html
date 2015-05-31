@@ -15,7 +15,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             {% for post in posts %}
                 <div class="post-preview">
-                    <a href="post.html">
+                    <a href="{{ post.get_post_url }}">
                         <h2 class="post-title">
                            {{ post.title|safe }}
                         </h2>
@@ -23,7 +23,7 @@
                            {{ post.abstract|safe }}
                         </h3>
                     </a>
-                    <p class="post-meta">Posted by <a href="#">{{ post.author.username}}</a>on {{ post.publish_time|date:"F j, Y" }}.</p>
+                    <p class="post-meta">Posted by <a href="{% url 'about_me' %}">{{ post.author.username}}</a> on {{ post.publish_time|date:"F j, Y" }}.</p>
                 </div>
                 <hr>
              {% endfor %}

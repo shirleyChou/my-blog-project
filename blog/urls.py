@@ -6,5 +6,5 @@ from django.conf.urls import patterns, url
 urlpatterns = patterns('blog.views',
     # url(r'^$', 'home'),
     url(r'^posts/$', 'all_posts', name='all_posts'),
-    url(r'^(?P<blog_id>\d+)/([^/]+)/$', 'article', name='article'),
+    url(r'^(?P<blog_id>\d+)/(?P<blog_link>[\w,-]*)$', 'article', name='article'),
 )

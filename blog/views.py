@@ -30,7 +30,7 @@ def all_posts(request):
     posts = _query_pages(request)
     return render_to_response('posts.html', {'posts': posts})
 
-def article(request, blog_id):
+def article(request, blog_id, blog_link):
     post = _query_pages(request, pk=blog_id)
     return render_to_response('article.html', {'posts': post})
 

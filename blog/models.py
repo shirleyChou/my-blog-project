@@ -1,6 +1,7 @@
 # encoding: utf-8
 from django.db import models
 from django.contrib.auth.models import User
+from django.template.defaultfilters import slugify
 
 
 # Create your models here.
@@ -21,7 +22,8 @@ class Post(models.Model):
         ('d', u"草稿"),
         ('p', u"发布"),
     )
-
+    
+    link = models.CharField(u'URL', max_length=50, default='')
     title = models.CharField(u'标题', max_length=50, unique=True)
     author = models.ForeignKey(User, verbose_name=u'作者')
     create_time = models.DateTimeField(u'创建时间', auto_now_add=True)
@@ -32,6 +34,13 @@ class Post(models.Model):
     status = models.CharField(u'状态', max_length=1, choices=STATUS_CHOICES, default=STATUS_CHOICES[0][0])
     is_public = models.BooleanField(u'公开', default=True)
     is_top = models.BooleanField(u'置顶', default=False)
+
+    def save(self, *args, **kwargs):
+        self.link = slugify(self.link)
+        super(Post, self).save(*args, **kwargs)
+        
+    def get_post_url():
+        return reverse('article', args=(self.id, self.link))
 
     def __unicode__(self):
         return self.title
