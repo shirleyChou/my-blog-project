@@ -1,11 +1,12 @@
+#encoding: utf-8
+
 from django.shortcuts import render_to_response, get_list_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Post
 
-def _query_pages(request, pagination=False):
-    blog_list = get_list_or_404(
-        Post.objects.order_by('-publish_time'))
+def _query_pages(request, pagination=False, **kwargs):
+    blog_list = get_list_or_404(Post.objects.order_by('-publish_time'), **kwargs)
     if pagination:
         paginator = Paginator(blog_list, 10)
         page_num = request.GET.get('p', 1)
@@ -30,9 +31,9 @@ def all_posts(request):
     posts = _query_pages(request)
     return render_to_response('posts.html', {'posts': posts})
 
-def article(request, blog_id, blog_link):
+def article(request, blog_id):
     post = _query_pages(request, pk=blog_id)
-    return render_to_response('article.html', {'posts': post})
+    return render_to_response('article.html', {'post': post})
 
 def about_me(request):
     return render_to_response('about.html')

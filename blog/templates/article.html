@@ -1,15 +1,15 @@
 {% extends "base.html" %}
-{% block title %}{{ posts.title|safe }}{% endblock %}
+{% block title %}{{ post.title|safe }}{% endblock %}
 
 {% block page_header %}
 <div class="post-heading">
-    <h1>{{ posts.title|safe }}</h1>
+    <h1>{{ post.title|safe }}</h1>
     <span class="meta">Posted by <a href="{% url 'about_me' %}">{{post.author.username}}</a> on {{post.publish_date|date="F j, Y"}}.</span>
 </div>
 {% endblock %}
 
 {% block page_content %}
-{{ posts.content|safe }}
+{{ post.content|safe }}
 {% endblock %}
 
 

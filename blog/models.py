@@ -23,7 +23,7 @@ class Post(models.Model):
         ('p', u"发布"),
     )
     
-    raw_link = models.CharField(u'URL', max_length=50, default='')
+    link = models.CharField(u'URL', max_length=50, default='')
     title = models.CharField(u'标题', max_length=50, unique=True)
     author = models.ForeignKey(User, verbose_name=u'作者')
     create_time = models.DateTimeField(u'创建时间', auto_now_add=True)
@@ -34,8 +34,7 @@ class Post(models.Model):
     status = models.CharField(u'状态', max_length=1, choices=STATUS_CHOICES, default=STATUS_CHOICES[0][0])
     is_public = models.BooleanField(u'公开', default=True)
     is_top = models.BooleanField(u'置顶', default=False)
-    link = '/blog' + str(self.id) + slugify(raw_link)
-
+    
     def save(self, *args, **kwargs):
         self.link = slugify(self.link)
         super(Post, self).save(*args, **kwargs)
