@@ -1,3 +1,4 @@
+#!/usr/bin/activate
 #encoding: utf-8
 
 from django.shortcuts import render_to_response, get_list_or_404
@@ -31,8 +32,8 @@ def all_posts(request):
     posts = _query_pages(request)
     return render_to_response('posts.html', {'posts': posts})
 
-def article(request, blog_id):
-    post = _query_pages(request, pk=blog_id)
+def article(request, blog_id, link=''):
+    post = _query_pages(request, pk=blog_id)[0]
     return render_to_response('article.html', {'post': post})
 
 def about_me(request):

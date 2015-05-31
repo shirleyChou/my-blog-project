@@ -15,7 +15,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             {% for post in posts %}
                 <div class="post-preview">
-                    <a href="{% url 'article' id=post.id %}">
+                    <a href="{% url 'blog:article' blog_id=post.id link=post.link %}">
                         <h2 class="post-title">
                            {{ post.title|safe }}
                         </h2>

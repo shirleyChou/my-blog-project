@@ -17,7 +17,7 @@
                        <li>
                            <span><small>{{ post.publish_time|date:"F j, Y" }} </small> 
                            >> 
-                           <a href="{{ blog.get_absolute_url }}">{{ post.title|safe }}</a></span>  
+                           <a href="{% url 'blog:article' blog_id=post.id link=post.link %}">{{ post.title|safe }}</a></span>  
                        </li>
                    {% endfor %}
                </ul>

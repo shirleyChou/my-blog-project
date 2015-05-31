@@ -38,9 +38,6 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         self.link = slugify(self.link)
         super(Post, self).save(*args, **kwargs)
-        
-    def get_post_url():
-        return '/blog' + reverse('article', args=(self.id, self.link))
 
     def __unicode__(self):
         return self.title
