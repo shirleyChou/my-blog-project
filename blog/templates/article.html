@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title|safe }}{% endblock %}
+
+{% block page_header %}
+<div class="post-heading">
+    <h1>{{ post.title }}</h1>
+    <h2 class="subheading">{{ post.abstract }} </h2>
+    <span class="meta">Posted by <a href="{% url 'about_me' %}">{{post.author.username}}</a> on {{post.publish_time|date:"F j, Y"}}.</span>
+</div>
+{% endblock %}
+
+{% block page_content %}
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            {% load django_markdown %}
+            {{ post.content|django_markdown }}
+            </div>
+        </div>
+    </div>
+</article>
+<hr>                
+{% endblock %}
+
+

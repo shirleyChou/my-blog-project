@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}All Posts{% endblock %}
+{% block page_header %}
+<div class="page-heading">
+    <h1>All Posts</h1>
+    <hr class="small">
+</div>
+{% endblock %}
+
+{% block page_content %}
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+               <ul class="posts">
+                   {% for post in posts %}
+                       <li>
+                           <span><small>{{ post.publish_time|date:"F j, Y" }} </small> 
+                           >> 
+                           <a href="{% url 'blog:article' blog_id=post.id link=post.link %}">{{ post.title|safe }}</a></span>  
+                       </li>
+                   {% endfor %}
+               </ul>
+            </div>
+        </div>
+    </div>
+</article>
+<hr>
+{% endblock %}
