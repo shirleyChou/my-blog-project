@@ -7,7 +7,14 @@ urlpatterns = patterns('blog.views',
     # url(r'^$', 'home'),
     url(r'^posts/$', 'all_posts', name='all_posts'),
     url(r'^(?P<blog_id>\d+)/(?P<link>[\w,-]*)/$', 'article', name='article'),
+<<<<<<< HEAD
     url(r'^create-new-post/$', 'add_article', name='add_article'),
 )
 
 
+=======
+)
+
+# r'^(?P<blog_id>\d+)/([\w,-]*)/$'
+# r'^(?P<pk>\d+)/$'
+>>>>>>> d44f324b1a5eb179f6418777b59e2892a1ab4cc8
