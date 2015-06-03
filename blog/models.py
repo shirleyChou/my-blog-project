@@ -31,7 +31,7 @@ class Post(models.Model):
     update_time = models.DateTimeField(u'修改时间', auto_now=True)
     abstract = models.CharField(u'摘要', max_length=200, default='', blank=True)
     content = models.TextField(u'内容', )
-    status = models.CharField(u'状态', max_length=1, choices=STATUS_CHOICES, default=STATUS_CHOICES[0][0])
+    status = models.CharField(u'状态', max_length=1, choices=STATUS_CHOICES, default=STATUS_CHOICES[1][0])
     is_public = models.BooleanField(u'公开', default=True)
     is_top = models.BooleanField(u'置顶', default=False)
     
