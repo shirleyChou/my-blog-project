@@ -23,15 +23,15 @@ class Post(models.Model):
         ('p', u"发布"),
     )
     
-    link = models.CharField(u'URL', max_length=50, default='')
+    link = models.CharField(u'URL', max_length=50, default='') # is required
     title = models.CharField(u'标题', max_length=50, unique=True)
-    author = models.ForeignKey(User, verbose_name=u'作者')
+    author = models.ForeignKey(User, verbose_name=u'作者') # is required
     create_time = models.DateTimeField(u'创建时间', auto_now_add=True)
-    publish_time = models.DateTimeField(u'公开时间', null=True)
+    publish_time = models.DateTimeField(u'公开时间', null=True) # is required
     update_time = models.DateTimeField(u'修改时间', auto_now=True)
     abstract = models.CharField(u'摘要', max_length=200, default='', blank=True)
     content = models.TextField(u'内容', )
-    status = models.CharField(u'状态', max_length=1, choices=STATUS_CHOICES, default=STATUS_CHOICES[1][0])
+    status = models.CharField(u'状态', max_length=1, choices=STATUS_CHOICES, default=STATUS_CHOICES[1][0]) # is required
     is_public = models.BooleanField(u'公开', default=True)
     is_top = models.BooleanField(u'置顶', default=False)
     
