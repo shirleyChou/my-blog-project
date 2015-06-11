@@ -43,7 +43,6 @@ MIDDLEWARE_CLASSES = [
 # os.path.dirname(__file__) points to the location of settings.py
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates').replace('\\','/'),
-    os.path.join(BASE_DIR, 'templatetags').replace('\\', '/'),
 )
 
 
