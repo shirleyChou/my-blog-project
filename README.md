@@ -14,5 +14,5 @@
 * bower
 
 **预览效果:**
-
+ ![image][https://github.com/shirleyChou/my-blog-project/blob/master/draft.png]
 
