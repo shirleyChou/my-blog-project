@@ -10,9 +10,10 @@ PROJECT_DIR = os.path.dirname(BASE_DIR)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '5wy8y*u^hu*xd+9mp(#80)8^kgymk4i@_7(f)^baxo9jwd&l)4'
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-TEMPLATE_DEBUG = DEBUG
+TEMPLATE_DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 # Application definition
