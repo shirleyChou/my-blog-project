@@ -1,2 +1,2 @@
-# personal blog project built using Django
+### personal blog project built using Django
 ---
