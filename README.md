@@ -13,6 +13,6 @@
 * MySQL 5.5 
 * bower
 
-**预览效果:**
-
+**预览效果:**  
+ ![](https://github.com/shirleyChou/my-blog-project/blob/master/draft.png)
 
