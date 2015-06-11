@@ -2,14 +2,11 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
-urlpatterns = patterns('blog.views',
-    url(r'^$', 'home', name='home'),
-    url(r'^about/$', 'about_me', name='about_me'),
-    url(r'^404', 'page_not_found', name='page_not_found'),
-)
-
-urlpatterns += patterns('',
-    url(r'^admin/', include(admin.site.urls), name='admin'),
-    url(r'^blog/', include('blog.urls', namespace='blog')),
-    url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
+urlpatterns = patterns('',
+    # url(r'^', include('mysite.apps.home.urls')),
+    # url(r'^account/', include('mysite.apps.account.urls')),
+    url(r'^$', 'mysite.apps.blog.views.home'),
+    url(r'^blog/', include('mysite.apps.blog.urls', namespace='blog')),
+    url(r'^admin/', include(admin.site.urls)),  
+    # url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
 )
